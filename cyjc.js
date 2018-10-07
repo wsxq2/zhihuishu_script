@@ -37,9 +37,10 @@ async function main() {
 			let interval=3000;
 			let count=0;
 			let timerID = setInterval(async function () {
-				console.log("count: "+ count);
+				console.log("script is running! count: "+ count);
 				//判断视频是否结束
 				if(count !=0 && document.querySelector('span.currentTime').innerText === document.querySelector('span.duration').innerText){
+					console.log('find current vidoe is ended');
 					clearInterval(timerID);
 					document.getElementById('nextBtn').click();
 					videoIsEnded =true;
@@ -47,7 +48,7 @@ async function main() {
 				let tmIframe=document.getElementById('tmDialog_iframe');
 				//判断是否弹出题目
 				if(tmIframe){
-					console.log("find a dot!");
+					console.log("find a question dot!");
 					//获得并勾选正确答案
 					let correctAnswer=tmIframe.contentWindow.document.querySelectorAll('[_correctanswer="1"]');
 					for (let i = 0, len = correctAnswer.length; i < len; i++) {
